@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Honk&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Road to Interpretability</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20%;
+            text-align: left;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            min-height: 250px;
+        }
+        .audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Image styling */
+        .content-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        #section1 {
+            background-color: #bdcb30; /* Blue */
+            font-family: "Audiowide", sans-serif;
+        }
+        
+        #section2 {
+            background-color: #8a904c; /* Red */
+        }
+        
+        #section3 {
+            background-color: #e2ba36; /* Green */
+        }
+        
+        #section4 {
+            background-color: #d35d2a; /* Purple */
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#section1">What is Interpretability</a>
+        <a href="#section2">Why it's Important</a>
+        <a href="#section3">COMPAS Example</a>
+        <a href="#section4">The Road Ahead</a>
+    </div>
+
+    <section id="section1" class="section">
+        <h1>What is Interpretability?</h1>
+        <div class="content-box">
+            <p>Interpretability is researching and understanding how an artificial intelligence model works, from the information it knows and why and how it makes its decisions. Understanding the way these models work is crucial for fostering trust and ethical practices when using the models. 
+                
+                <br><br>
+
+                In the machine learning community, mechanistic interpretability is the most popular type of research area to focus on. Mechanistic interpretability focuses on reverse engineering advanced neural networks to understand the model's decision making. However, there are other types of interpretability, including: behavioral interpretability (which analyzes the relationship between inputs and outputs), attributional interpretability (which uses gradients to trace predictions to an individual input) and concept-based interpretability (which leverages a top-down method to create representations of behavior). 
+                </p>
+        </div>
+    </section>
+
+    <section id="section2" class="section">
+        <h1>Why is Interpretability Important?</h1>
+        <div class="content-box">
+            <p>In a blog posted in January 2025, Sam Altman wrote that "We are now confident we know how to build AGI as we have traditionally understood it… We are beginning to turn our aim beyond that, to superintelligence in the true sense of the word… With superintelligence, we can do anything else. Superintelligent tools could massively accelerate scientific discovery and innovation well beyond what we are capable of doing on our own, and in turn massively increase abundance and prosperity." <br> <br> 
+
+                As models become more intelligent, understanding how they work could help us control them. For example, if we understood the inner workings of an AI model, we could analyze it and see if the model had learned anything harmful before it was deployed. If so, we could rebuild the model. <br><br> 
+                
+                I am most concerned about the applications of advanced AI models. Even smaller scale models can be harmful to real people, like in the case of COMPAS (Correctional Offender Management Profiling for Alternative Sanctions), a machine learning tool that assesses the likelihood of a criminal committing a crime again in a process called recidivism. <br> <br> 
+                
+                In 2020, researchers at MIT found that the score COMPAS computed was often miscalculated, leading to extra years of prison time or dangerous individuals being released early. In one scenario, an individual who committed murder while on bail was released. <br> <br> 
+                
+                Due to the black box nature of COMPAS' algorithm, it was misunderstood and claimed as racially biased by ProPublica, an independent investigative journalist organization. ProPublica assumed that the model didn't factor in age and instead assumed a "specific form for age". As a result of this assumption, it changed ProPublica's analysis of fairness leading them to incorrectly conclude that African American criminals had a higher COMPAS score. <br> <br> 
+                
+                In reality, there were three main concerns about COMPAS' calculations. First, COMPAS' algorithm was closed-source, so it became difficult for researchers to validate scores and to look under the hood. Second, COMPAS' miscalculations could have stemmed from incorrectly entered data. And third, there were contradicting claims about how it works – founders of COMPAS claimed that COMPAS had a linear relationship with age, however researchers found that there is a nonlinear relationship. 
+                Researchers from MIT commented that "While COMPAS depends heavily on age, we show in Sections 2.3 through 2.6 that it does not seem to depend strongly on either criminal history or proxies for race. That is, it is possible that COMPAS depends less on criminal history than we might expect. This leads to the possibility that COMPAS instead depends heavily on variables that we may not want it to depend on."
+                </p>
+        </div>
+    </section>
+
+    <section id="section3" class="section">
+        <h1>COMPAS - Toy Example</h1>
+        <div class="content-box">
+            <p>COMPAS' algorithm has 137 variables. However, when comparing COMPAS to larger models like ChatGPT-4, COMPAS is a toy model. ChatGPT-4 is estimated to have 1.8 trillion parameters. <br> <br>
+
+                Through this case study on COMPAS, it is clear that transparency is essential to evaluating the fairness of a model. It's crucial to fostering trust between the people using it, and we are giving a lot of power to algorithms that we don't understand. I am beginning to understand that once zoomed out to a larger scale, the applications of advanced artificial intelligence would have even more power in decision making. 
+                </p>
+        </div>
+    </section>
+
+    <section id="section4" class="section">
+        <h1>The Road to Interpretability</h1>
+        <div class="content-box">
+            <p>Companies like Anthropic are committed to researching interpretability. There are multiple methods to interpretability research like feature visualization, circuit analysis, and causal intervention within the network. <br><br>
+
+                In the paper "Mapping the Mind of an LLM", Anthropic uses feature visualization to map out features that light up in the neurons of Claude 3.0 Sonnet. Scientists at Anthropic were able to extract millions of features from the middle layer of Claude and measure the distance between features. For example, nearby the "Golden Gate Bridge" feature was Ghirardelli Square, Alcatraz Island, Golden State Warriors, and California Governor Gavin Newsom. <br><br>
+                <img src="GoldenGate.png" class="content-image" alt="Golden Gate Bridge feature visualization">
+
+                Researchers also found that they were able to heighten and amplify specific negative features, like writing a scam email. Normally when prompted, Claude will not write a scam email. But when the scam email feature is heightened, it will comply. Notably, manipulating features isn't just "correlated with changing the output text, but also the model's behavior." 
+                Scientists also found features like code backdoors, developing biological weapons, gender discrimination, and problematic AI behavior like seeking power, manipulation, and secrecy. <br><br> 
+
+                As we scale AI models, the companies that create them like OpenAI and Anthropic, have more power to control them. Like in the case of COMPAS, researchers struggled to check the algorithm’s calculations because it was closed-source. Similarly, with leading AI research labs, we will only be able to assess these models if they allow us to. Transparency is crucial in maintaining a healthy relationship with technology. In conclusion, developing interpretable models isn’t just an interesting research exercise, but crucial in ensuring that it is fairly used in society. 
+
+
+                </p>
+        </div>
+    </section>
+</body>
+</html>
